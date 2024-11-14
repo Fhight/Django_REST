@@ -31,38 +31,38 @@ Django REST framework (DRF) is a powerful and flexible toolkit for building Web 
 
 4. **Create a new Django project:**
     ```bash
-    django-admin startproject [project_name]
-    cd [project_name]
+    django-admin startproject API_REST
+    cd API_REST
     ```
 
     If the previous command doesn't work, try this one:
     ```bash
-    py -m django startproject [project_name]
-    cd [project_name]
+    py -m django startproject API_REST
+    cd API_REST
     ```
 
 5.  **Create a new Django app:**
     ```bash
-    python manage.py startapp [app_name]
+    python manage.py startapp api
     ```
 
 6. **Create a new Django app:**
     ```bash
-    python manage.py startapp [app_name]
+    python manage.py startapp api
     ```
 
 7. **Add the new app and Django REST framework to `INSTALLED_APPS` in `settings.py`:**
     ```python
     INSTALLED_APPS = [
         ...
-        '[app_name]',
+        'api',
         'rest_framework',
     ]
     ```
 
 ## Creating a Model
 
-1. **Define a model in `[app_name]/models.py`:**
+1. **Define a model in `api/models.py`:**
     ```python
     from django.db import models
 
@@ -84,7 +84,7 @@ Django REST framework (DRF) is a powerful and flexible toolkit for building Web 
 
 ## Creating a Serializer
 
-1. **Create a serializer in `[app_name]/serializers.py`:**
+1. **Create a serializer in `api/serializers.py`:**
     ```python
     from rest_framework import serializers
     from .models import Item
@@ -97,7 +97,7 @@ Django REST framework (DRF) is a powerful and flexible toolkit for building Web 
 
 ## Creating Views
 
-1. **Create views in `[app_name]/views.py`:**
+1. **Create views in `api/views.py`:**
     ```python
     from rest_framework import generics
     from .models import Item
@@ -114,7 +114,7 @@ Django REST framework (DRF) is a powerful and flexible toolkit for building Web 
 
 ## Configuring URLs
 
-1. **Add URLs in `[app_name]/urls.py`:**
+1. **Add URLs in `api/urls.py`:**
     ```python
     from django.urls import path, include
     from .views import ItemListCreate, ItemDetail
@@ -125,14 +125,14 @@ Django REST framework (DRF) is a powerful and flexible toolkit for building Web 
     ]
     ```
 
-2. **Include app URLs in `[project_name]/urls.py`:**
+2. **Include app URLs in `API_REST/urls.py`:**
     ```python
     from django.contrib import admin
     from django.urls import path, include
 
     urlpatterns = [
         path('admin/', admin.site.urls),
-        path('api/', include('[app_name].urls')),
+        path('api/', include('api.urls')),
     ]
     ```
 
