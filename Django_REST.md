@@ -46,15 +46,10 @@ Django REST framework (DRF) is a powerful and flexible toolkit for building Web 
     python manage.py startapp api
     ```
 
-6. **Create a new Django app:**
-    ```bash
-    python manage.py startapp api
-    ```
-
-7. **Add the new app and Django REST framework to `INSTALLED_APPS` in `settings.py`:**
+6. **Add the new app and Django REST framework to `INSTALLED_APPS` in `settings.py`:**
     ```python
     INSTALLED_APPS = [
-        ...
+        ...,
         'api',
         'rest_framework',
     ]
